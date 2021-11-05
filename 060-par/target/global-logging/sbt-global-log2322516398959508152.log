@@ -1,0 +1,147 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__runWatch console0, Some(aa98ea91-4287-44b7-9098-72a976d738c8), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtStashOnFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__preWatch console0, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/060-par/target/scala-2.13/classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mParSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 10 (extension methods)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- An extension for map is created (we only test types) *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Expected no compiler error, but got the following type error: "value map is not a member of adpro.Par.Par[Int]", for code: [0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m           import Par._[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m           def f (l: Par[Int]): Par[String] = l.map (_.toString) (ParSpec.scala:63)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- An extension for map2 is created (we only test types) *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Expected no compiler error, but got the following type error: "value map2 is not a member of adpro.Par.Par[Int]", for code: [0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          import Par._[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          def f (l: Par[Int], r: Par[Int]): Par[String] =[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m            l.map2 (r) ((l,r) => l.toString + r.toString) (ParSpec.scala:71)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- An extension for chooser is created (we only test types) *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Expected no compiler error, but got the following type error: "value chooser is not a member of adpro.Par.Par[A]", for code: [0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          import Par._[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m          def f[A] (pa: Par[A]) (pm: A => Par[Int]): Par[Int] =[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m            pa.chooser[Int] (pm) (ParSpec.scala:79)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 9 (join)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- join really joins (the test is a bit weak) *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  NotImplementedError was thrown during property evaluation.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Message: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Occurred when passed generated values ([0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m      n = 0 // 31 shrinks[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    )[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 8 (chooser)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- chooser returns the right computation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- choiceN2 returns the right computation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- choice2 returns the right computation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 7 (choiceN, choice)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- choiceN returns the right computation *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.Par$.choiceN(Par.scala:162)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.ParSpec.$anonfun$new$28(ParSpec.scala:129)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.TestSuite.withFixture(TestSuite.scala:196)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- choice returns the right computation *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  NotImplementedError was thrown during property evaluation.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Message: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Occurred when passed generated values ([0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m      b = false[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    )[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 6 (parFilter)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- parFilter does not force the computation *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.Par$.parFilter(Par.scala:152)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.ParSpec.$anonfun$new$36(ParSpec.scala:194)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.TestSuite.withFixture(TestSuite.scala:196)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- parFilter does not wait eagerly for completion *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.Par$.parFilter(Par.scala:152)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.ParSpec.$anonfun$new$38(ParSpec.scala:200)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.TestSuite.withFixture(TestSuite.scala:196)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- parFilter tries all the elements *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.Par$.parFilter(Par.scala:152)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.ParSpec.$anonfun$new$41(ParSpec.scala:207)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.TestSuite.withFixture(TestSuite.scala:196)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- parFilter runs the elements in parallel *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.Par$.parFilter(Par.scala:152)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.ParSpec.$anonfun$new$44(ParSpec.scala:214)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.TestSuite.withFixture(TestSuite.scala:196)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- parFilter is functionally equivalent to filter *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  GeneratorDrivenPropertyCheckFailedException was thrown during property evaluation.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Message: NotImplementedError was thrown during property evaluation.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Message: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Occurred when passed generated values ([0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m      f = org.scalacheck.GenArities$$Lambda$20067/0x0000000803835f50@29c1e82c[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    )[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Location: (ParSpec.scala:220)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Occurred when passed generated values ([0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m      l = List() // 8 shrinks[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    )[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 5 (wget)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- This is not a test, but an easy way to run your function (prints first line from up to 100 chars from 3 websites)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  + <!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8" /> <meta http-equiv="X-UA-Compatible"  [0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  + <!doctype html><html itemscope="" itemtype="http://schema.org/WebPage" lang="da"><head><meta content [0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  + <!DOCTYPE html> [0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 4 (sequence)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- sequence does not force the computation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- sequence does not wait eagerly for completion[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- sequence does not loose any elements[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- sequence still runs elements in parallel[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- sequence runs map in parallel (composes with map)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 2 (asyncF)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- asyncF is lazy[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- asyncF makes a function that runs in parallel[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 2 seconds, 510 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 22[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 11, failed 11, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 11 TESTS FAILED ***[0m[0m
+[0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	adpro.ParSpec[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 4 s, completed 9. 10. 2021 19:01:53[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(resumeFromFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtPopOnFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__postWatch console0, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(resumeFromFailure, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__waitWatch console0, None, None)[0m
+[0m[[0m[0minfo[0m] [0m[0mshutting down sbt server[0m

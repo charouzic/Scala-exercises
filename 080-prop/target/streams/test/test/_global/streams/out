@@ -1,0 +1,176 @@
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(adpro.GenSpec, org.scalatest.tools.Framework$$anon$1@6008bb19, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mGenSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 13 (listOfN with fixed size)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- listOfN should compile (only checks type) *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Expected no compiler error, but got the following type error: "not enough arguments for method listOfN: (n: Int, g: adpro.Gen[Double]): adpro.Gen[List[Double]].[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Unspecified value parameter g.", for code:  implicit val genDouble = Gen.double[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m            val r4: List[List[Double]] =[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m                    (Gen.listOfN[Double] (3).toStream (42).take (5)).toList (GenSpec.scala:45)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- listOf should compile (only checks type) *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Expected no compiler error, but got the following type error: "missing argument list for method listOf in object Gen[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Unapplied methods are only converted to functions when a function type is expected.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  You can make this conversion explicit by writing `listOf _` or `listOf(_,_)` instead of `listOf`.", for code:  implicit val genDouble = Gen.double[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m            implicit val genInt = Gen.choose (0, 1000)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m            val r5: List[List[Double]] =[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m                    (Gen.listOf[Double].toStream (42).take (5)).toList (GenSpec.scala:53)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 12 (Prop, no tests so far; make sure it compiles[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 11 (union)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- union is idempotent (a simple scenario) *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.Gen.union(Gen.scala:90)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.GenSpec.$anonfun$new$8(GenSpec.scala:64)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.TestSuite.withFixture(TestSuite.scala:196)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 10 (listOf, generalized size)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should give a list of the right size and contents[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 9 (flatMap)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- A simple fixed flatMap scenario[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 8 (listOfN with fixed size)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should compile[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should give a list of the right size and contents[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 7 (unit, boolean, and double)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simple test cases[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 6 (choose)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Generated numbers must be in range [|n|;|n|+|m|+1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 5 (impureRandomDoubles)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- impureRandomDoubles should not be referentially transparent *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.WarmupExercises$.impureRandomDoubles(Gen.scala:49)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.GenSpec.$anonfun$new$35(GenSpec.scala:140)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.TestSuite.withFixture(TestSuite.scala:196)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- impureDoubles1 should be different than impureDoubles2 *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.WarmupExercises$.impureDoubles1$lzycompute(Gen.scala:51)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.WarmupExercises$.impureDoubles1(Gen.scala:51)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.GenSpec.$anonfun$new$36(GenSpec.scala:145)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 4 (state2stream)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- check the list of 1000 doubles *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.WarmupExercises$.someRandomDoubles$lzycompute(Gen.scala:44)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.WarmupExercises$.someRandomDoubles(Gen.scala:44)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.GenSpec.$anonfun$new$38(GenSpec.scala:154)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- check the first 1000 doubles for the generator *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  NotImplementedError was thrown during property evaluation.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Message: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Occurred when passed generated values ([0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m      arg0 = Simple(-1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    )[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- someRandomDoubles should be different than moreRandomDoubles *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.WarmupExercises$.someRandomDoubles$lzycompute(Gen.scala:44)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.WarmupExercises$.someRandomDoubles(Gen.scala:44)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at adpro.GenSpec.$anonfun$new$43(GenSpec.scala:166)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 3 (State)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- s_random_int has the right type[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- s_random_int returns the right numbers *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  NotImplementedError was thrown during property evaluation.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Message: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Occurred when passed generated values ([0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m      arg0 = Simple(416621740146643162)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    )[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- s_nonNegativeInt has the right type[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- s_nonNegativeInt returns the right numbers *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  NotImplementedError was thrown during property evaluation.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Message: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Occurred when passed generated values ([0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m      arg0 = Simple(-1)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    )[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- s_double has the right type[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- s_double returns the right numbers *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  NotImplementedError was thrown during property evaluation.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Message: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    Occurred when passed generated values ([0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m      arg0 = Simple(9223372036854775807)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    )[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m  Check if the numbers generated are alright[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  - s_random_int *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at adpro.WarmupExercises$.random_int$lzycompute(Gen.scala:34)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at adpro.WarmupExercises$.random_int(Gen.scala:34)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at adpro.GenSpec.$anonfun$new$55(GenSpec.scala:206)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  - s_nonNegativeInt *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at adpro.WarmupExercises$.nonNegativeInt$lzycompute(Gen.scala:35)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at adpro.WarmupExercises$.nonNegativeInt(Gen.scala:35)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at adpro.GenSpec.$anonfun$new$56(GenSpec.scala:209)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  - s_double *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    scala.NotImplementedError: an implementation is missing[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at adpro.WarmupExercises$.double$lzycompute(Gen.scala:36)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at adpro.WarmupExercises$.double(Gen.scala:36)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at adpro.GenSpec.$anonfun$new$57(GenSpec.scala:212)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.Transformer.apply(Transformer.scala:20)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    at org.scalatest.freespec.AnyFreeSpecLike$$anon$1.apply(AnyFreeSpecLike.scala:406)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m    ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 2 (nextInt)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- The first integer (x)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- The second integer (y)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mExercise 1 (RNG)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- One test :) [scenario][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 677 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 26[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 12, failed 14, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 14 TESTS FAILED ***[0m[0m
+[0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	adpro.GenSpec[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m

@@ -1,0 +1,73 @@
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 4 products, 1 sources, 9 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/src/test/scala/adpro/StateSpec.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set(NamesChange(adpro.State$,ModifiedNames(changes = UsedName(random_integers,[Default]), UsedName(finalize,[Default]))), NamesChange(adpro.RNG$,ModifiedNames(changes = UsedName(finalize,[Default]))), NamesChange(adpro.State,ModifiedNames(changes = UsedName(random_integers,[Default]), UsedName(finalize,[Default]))), NamesChange(adpro.RNG,ModifiedNames(changes = UsedName(finalize,[Default])))))[0m
+[0m[[0m[0mdebug[0m] [0m[0mThe adpro.State$ has the following regular definitions changed:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	UsedName(random_integers,[Default]), UsedName(finalize,[Default]).[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll member reference dependencies will be considered within this context.[0m
+[0m[[0m[0mdebug[0m] [0m[0mFiles invalidated by inheriting from (external) adpro.State$: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mNow invalidating by inheritance (internally).[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting direct dependencies of all classes transitively invalidated by inheritance.[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting classes that directly depend on (external) adpro.State$.[0m
+[0m[[0m[0mdebug[0m] [0m[0mThe following modified names cause invalidation of adpro.StateSpec: Set(UsedName(random_integers,[Default]))[0m
+[0m[[0m[0mdebug[0m] [0m[0mThe adpro.RNG$ has the following regular definitions changed:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	UsedName(finalize,[Default]).[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll member reference dependencies will be considered within this context.[0m
+[0m[[0m[0mdebug[0m] [0m[0mFiles invalidated by inheriting from (external) adpro.RNG$: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mNow invalidating by inheritance (internally).[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting direct dependencies of all classes transitively invalidated by inheritance.[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting classes that directly depend on (external) adpro.RNG$.[0m
+[0m[[0m[0mdebug[0m] [0m[0mNone of the modified names appears in source file of adpro.RNGSpec. This dependency is not being considered for invalidation.[0m
+[0m[[0m[0mdebug[0m] [0m[0mNone of the modified names appears in source file of adpro.StateSpec. This dependency is not being considered for invalidation.[0m
+[0m[[0m[0mdebug[0m] [0m[0mNone of the modified names appears in source file of adpro.Util. This dependency is not being considered for invalidation.[0m
+[0m[[0m[0mdebug[0m] [0m[0mThe adpro.State has the following regular definitions changed:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	UsedName(random_integers,[Default]), UsedName(finalize,[Default]).[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll member reference dependencies will be considered within this context.[0m
+[0m[[0m[0mdebug[0m] [0m[0mFiles invalidated by inheriting from (external) adpro.State: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mNow invalidating by inheritance (internally).[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting direct dependencies of all classes transitively invalidated by inheritance.[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting classes that directly depend on (external) adpro.State.[0m
+[0m[[0m[0mdebug[0m] [0m[0mThe following modified names cause invalidation of adpro.StateSpec: Set(UsedName(random_integers,[Default]))[0m
+[0m[[0m[0mdebug[0m] [0m[0mThe adpro.RNG has the following regular definitions changed:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	UsedName(finalize,[Default]).[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll member reference dependencies will be considered within this context.[0m
+[0m[[0m[0mdebug[0m] [0m[0mFiles invalidated by inheriting from (external) adpro.RNG: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mNow invalidating by inheritance (internally).[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting direct dependencies of all classes transitively invalidated by inheritance.[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting classes that directly depend on (external) adpro.RNG.[0m
+[0m[[0m[0mdebug[0m] [0m[0mNone of the modified names appears in source file of adpro.RNGSpec. This dependency is not being considered for invalidation.[0m
+[0m[[0m[0mdebug[0m] [0m[0mNone of the modified names appears in source file of adpro.StateSpec. This dependency is not being considered for invalidation.[0m
+[0m[[0m[0mdebug[0m] [0m[0mNone of the modified names appears in source file of adpro.Util. This dependency is not being considered for invalidation.[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial source changes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	removed: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	added: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	modified: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set(NamesChange(adpro.State$,ModifiedNames(changes = UsedName(random_integers,[Default]), UsedName(finalize,[Default]))), NamesChange(adpro.RNG$,ModifiedNames(changes = UsedName(finalize,[Default]))), NamesChange(adpro.State,ModifiedNames(changes = UsedName(random_integers,[Default]), UsedName(finalize,[Default]))), NamesChange(adpro.RNG,ModifiedNames(changes = UsedName(finalize,[Default]))))[0m
+[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	external source: Set(adpro.StateSpec)[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(adpro.StateSpec)[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: adpro.RNGSpec, adpro.StateSpec, adpro.Util[0m
+[0m[[0m[0mdebug[0m] [0m[0mRecompiling all sources: number of invalidated sources > 50.0% of all sources[0m
+[0m[[0m[0mdebug[0m] [0m[0mcompilation cycle 1[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/050-state/target/scala-2.13/test-classes ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.13:1.5.7:compile for Scala 2.13.5[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 549f3d8b for Scala compiler version 2.13.5[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-deprecation[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-deprecation[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-feature[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-Xfatal-warnings[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.5/scala-library-2.13.5.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
+[0m[[0m[0mdebug[0m] [0m[0m	/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/050-state/target/scala-2.13/test-classes:/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/050-state/target/scala-2.13/classes:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scalacheck/scalacheck_2.13/1.14.3/scalacheck_2.13-1.14.3.jar:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scalatest/scalatest-freespec_2.13/3.2.0/scalatest-freespec_2.13-3.2.0.jar:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scalatest/scalatest-shouldmatchers_2.13/3.2.0/scalatest-shouldmatchers_2.13-3.2.0.jar:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scalatest/scalatest-mustmatchers_2.13/3.2.0/scalatest-mustmatchers_2.13-3.2.0.jar:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scalatestplus/scalacheck-1-14_2.13/3.2.0.0/scalacheck-1-14_2.13-3.2.0.0.jar:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-sbt/test-interface/1.0/test-interface-1.0.jar:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scalatest/scalatest-core_2.13/3.2.0/scalatest-core_2.13-3.2.0.jar:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.5/scala-reflect-2.13.5.jar:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scalatest/scalatest-matchers-core_2.13/3.2.0/scalatest-matchers-core_2.13-3.2.0.jar:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scalatest/scalatest-compatible/3.2.0/scalatest-compatible-3.2.0.jar:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scalactic/scalactic_2.13/3.2.0/scalactic_2.13-3.2.0.jar:/Users/viki/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.13/1.2.0/scala-xml_2.13-1.2.0.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 4.656301569 s[0m
+[0m[[0m[0mdebug[0m] [0m[0mdone compiling[0m

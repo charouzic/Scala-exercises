@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/070-testing/src/test/scala/fpinscala/laziness/StreamSpec.scala:217:16: could not find implicit value for parameter arbA: org.scalacheck.Arbitrary[fpinscala.laziness.stream00.Stream[Int]][0m
+[0m[[0m[31merror[0m] [0m[0m        forAll { (stream1 :Stream[Int], stream2 :Stream[Int]) => {[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

@@ -1,0 +1,19 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/060-par/src/test/scala/adpro/ParSpec.scala:127:3: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0m  "Exercise 7 (choiceN, choice)" - {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/060-par/src/test/scala/adpro/ParSpec.scala:192:3: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0m  "Exercise 6 (parFilter)" - {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/060-par/src/test/scala/adpro/ParSpec.scala:230:3: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0m  "Exercise 5 (wget)" - {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/060-par/src/test/scala/adpro/ParSpec.scala:243:3: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0m  "Exercise 4 (sequence)" - {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/060-par/src/test/scala/adpro/ParSpec.scala:275:3: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0m  "Exercise 2 (asyncF)"  - {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/060-par/src/test/scala/adpro/ParSpec.scala:285:1: Unmatched closing brace '}' ignored here[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0m6 errors found[0m

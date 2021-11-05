@@ -1,0 +1,51 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(~test, Some(8ddf2da5-05ac-450d-8eee-176099459db2), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__runWatch console0, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtStashOnFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__preWatch console0, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/target/scala-2.13/classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:15:18: not found: type RNG[0m
+[0m[[0m[31merror[0m] [0m[0m  lazy val rng1: RNG = new Random(42)[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:24:26: not found: type State[0m
+[0m[[0m[31merror[0m] [0m[0m  lazy val s_random_int: State[RNG,Int] = ???[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:25:30: not found: type State[0m
+[0m[[0m[31merror[0m] [0m[0m  lazy val s_nonNegativeInt: State[RNG,Int] = ???[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:26:22: not found: type State[0m
+[0m[[0m[31merror[0m] [0m[0m  lazy val s_double: State[RNG,Double] = ???[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:36:28: not found: type RNG[0m
+[0m[[0m[31merror[0m] [0m[0m  def randomDoubles (seed: RNG): Stream[Double] = ???[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:50:28: not found: type State[0m
+[0m[[0m[31merror[0m] [0m[0mcase class Gen[A] (sample: State[RNG,A]) {[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:94:42: not found: type State[0m
+[0m[[0m[31merror[0m] [0m[0m  private[adpro] def state2stream[A] (s: State[RNG,A]) (seed: RNG): Stream[A] =[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:94:63: not found: type RNG[0m
+[0m[[0m[31merror[0m] [0m[0m  private[adpro] def state2stream[A] (s: State[RNG,A]) (seed: RNG): Stream[A] =[0m
+[0m[[0m[31merror[0m] [0m[0m                                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:56:22: not found: type RNG[0m
+[0m[[0m[31merror[0m] [0m[0m  def toStream (rng: RNG): Stream[A] =[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:95:41: not found: value cons[0m
+[0m[[0m[31merror[0m] [0m[0m    s.run (seed) match { case (n,s1) => cons (n, state2stream (s) (s1)) }[0m
+[0m[[0m[31merror[0m] [0m[0m                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:100:11: not found: value State[0m
+[0m[[0m[31merror[0m] [0m[0m     Gen (State (_.nextInt))[0m
+[0m[[0m[31merror[0m] [0m[0m          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:180:35: not found: type RNG[0m
+[0m[[0m[31merror[0m] [0m[0mcase class Prop (run: (TestCases, RNG) => Result) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m12 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 0 s, completed 30. 10. 2021 12:54:16[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(resumeFromFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtPopOnFailure, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__postWatch console0, None, Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(__waitWatch console0, None, Some(CommandSource(console0)))[0m
