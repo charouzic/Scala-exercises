@@ -428,7 +428,7 @@ object Exercises {
       ???
 
     lazy val json: Parser[JSON] =
-      ???
+      ws.? |* { jstring | jnumber | jnull |  jbool | jarray | jobject }
 
   } // JSONParser
 

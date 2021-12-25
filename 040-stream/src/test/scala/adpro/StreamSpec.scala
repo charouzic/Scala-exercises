@@ -12,16 +12,6 @@ class StreamSpec
     with org.scalatestplus.scalacheck.ScalaCheckPropertyChecks {
 
   import Stream._
-  "Exercise 12" - {
-    "fibs1 should be equal to fibs" in {
-      fibs1.take (100).toList ==fibs.take (100).toList
-    }
-  "from1 should be equal to from" in {
-      from (1).take (1000000000).drop (41).take (10).toList ==
-        from1 (1).take (1000000000).drop (41).take (10).toList
-    }
-  }
-
 
   "Exercise 11" - {
     "Unfold with immediate failure should give empty" in {

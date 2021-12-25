@@ -244,10 +244,6 @@ class RNGSpec
        }
     }
 
-    "New implementation of ints" in {
-      val x = _ints(10)
-    }
-
   }
 
   "Exercise 6 (map2)" - {

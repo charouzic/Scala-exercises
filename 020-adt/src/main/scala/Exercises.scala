@@ -22,76 +22,51 @@ object Exercises extends App with ExercisesInterface {
 
   // Exercise 2
 
-  def tail[A] (as: List[A]) :List[A] = as match {
-    case Nil => throw new Exception("Empty list")
-    case Cons(_, t) => t
-  }
+  def tail[A] (as: List[A]) :List[A] = ???
 
   // Exercise 3
 
-
+  // @annotation.tailrec
   // Uncommment the annotation after solving to make the
   // compiler check whether you made the solution tail recursive
-  // @annotation.tailrec
-  def drop[A] (l: List[A], n: Int) : List[A] = l match {
-      case Nil => Nil
-      case Cons(_, Nil) => throw new Exception("Empty list")
-      case Cons(_, t) => if (n == 0) l else drop(t, n-1)
-    }
+  def drop[A] (l: List[A], n: Int) : List[A] = ???
 
   // Exercise 4
 
-  def dropWhile[A] (l: List[A], f: A => Boolean): List[A] = l match {
-    case Cons(xs, t) if f(xs) => dropWhile(t, f)
-    case _ => l
-  }
+  def dropWhile[A] (l: List[A], f: A => Boolean): List[A] = ???
 
   // Exercise 5
 
-  def init[A] (l: List[A]): List[A] = l match {
-    case Nil => throw new Exception("Empty list")
-    case Cons(_, Nil) => Nil
-    case Cons(xs, t) => Cons(xs, init(t))
-  }
+  def init[A] (l: List[A]): List[A] = ???
 
   // Exercise 6
-  // use foldRight
-  def length[A] (as: List[A]): Int =
-    foldRight(as, 0)((x,y) => y+1)
+
+  def length[A] (as: List[A]): Int = ???
 
   // Exercise 7
 
-  //
+  // @annotation.tailrec
   // Uncommment the annotation after solving to make the
   // compiler check whether you made the solution tail recursive
-  @annotation.tailrec
-  def foldLeft[A,B] (as: List[A], z: B) (f: (B, A) => B): B = as match {
-    case Nil => z
-    case Cons(h, t) => foldLeft(t, f(z, h))(f)
-  }
+  def foldLeft[A,B] (as: List[A], z: B) (f: (B, A) => B): B = ???
 
   // Exercise 8
 
-  def product (as: List[Int]): Int =
-    foldLeft(as, 1)(_ * _)
+  def product (as: List[Int]): Int = ???
 
-  def length1[A] (as: List[A]): Int =
-    foldLeft(as, 0)((x, y) => x+1)
+  def length1[A] (as: List[A]): Int = ???
 
   // Exercise 9
 
-  def reverse[A] (as: List[A]): List[A] =
-    foldLeft(as, List[A]())((x, y) => Cons(y, x))
+  def reverse[A] (as: List[A]): List[A] = ???
 
   // Exercise 10
-  // write foldRight using the foldLeft
-  def foldRight1[A,B] (as: List[A], z: B) (f: (A, B) => B): B =
-    foldLeft(reverse(as), z) ((a, b) => (f(b, a)))
+
+  def foldRight1[A,B] (as: List[A], z: B) (f: (A, B) => B): B = ???
 
   // Exercise 11
 
-  def foldLeft1[A,B] (as: List[A], z: B) (f: (B,A) => B): B =
-    foldRight(as, (b:B) => b)((a,g) => b => g(f(b,a)))(z)
+  def foldLeft1[A,B] (as: List[A], z: B) (f: (B,A) => B): B = ???
 
   // Exercise 12
 
@@ -100,66 +75,30 @@ object Exercises extends App with ExercisesInterface {
     case Cons(h,t) => Cons(h, append(t, a2))
   }
 
-  def concat[A] (as: List[List[A]]): List[A] = {
-    foldRight(as, List[A]())(append)
-  }
+  def concat[A] (as: List[List[A]]): List[A] = ???
 
   // Exercise 13
 
-  def filter[A] (as: List[A]) (p: A => Boolean): List[A] =
-    foldRight(as, List[A]())((h, t) => if (p(h)) Cons(h, t) else t)
+  def filter[A] (as: List[A]) (p: A => Boolean): List[A] = ???
 
   // Exercise 14
-  def map[A,B](l: List[A])(f: A => B): List[B] =
-    foldRight(l, Nil:List[B])((h,t) => Cons(f(h),t))
 
-  def flatMap[A,B](as: List[A])(f: A => List[B]): List[B] =
-    concat(map(as)(f))
+  def flatMap[A,B](as: List[A])(f: A => List[B]): List[B] = ???
 
   // Exercise 15
 
-  def filter1[A] (l: List[A]) (p: A => Boolean) :List[A] =
-    flatMap(l)(h => if (p(h)) List(h) else Nil)
+  def filter1[A] (l: List[A]) (p: A => Boolean) :List[A] = ???
 
   // Exercise 16
 
-  def add (l: List[Int]) (r: List[Int]): List[Int] = (l,r) match {
-    case (Nil, _) => Nil // if one or the other list is longer we just return end (Nil)
-    case (_, Nil) => Nil // if one or the other list is longer we just return end (Nil)
-    case (Cons(h1, t1), Cons(h2,t2)) => Cons(h1+h2, add(t1)(t2))
-  }
+  def add (l: List[Int]) (r: List[Int]): List[Int] = ???
 
   // Exercise 17
 
-  def zipWith[A,B,C] (f: (A,B)=>C) (l: List[A], r: List[B]): List[C] = (l,r) match {
-    case (Nil, _) => Nil
-    case (_, Nil) => Nil
-    case (Cons(h1, t1), Cons(h2,t2)) => Cons(f(h1, h2), zipWith(f)(t1,t2))
-  }
+  def zipWith[A,B,C] (f: (A,B)=>C) (l: List[A], r: List[B]): List[C] = ???
 
   // Exercise 18
 
-  @annotation.tailrec
-  def startsWith[A](l: List[A], prefix: List[A]): Boolean = (l,prefix) match {
-    case (_,Nil) => true
-    case (Cons(h,t),Cons(h2,t2)) if h == h2 => startsWith(t, t2)
-    case _ => false
-  }
+  def hasSubsequence[A] (sup: List[A], sub: List[A]): Boolean = ???
 
-  @annotation.tailrec
-  def hasSubsequence[A](sup: List[A], sub: List[A]): Boolean = sup match {
-    case Nil => sub == Nil
-    case _ if startsWith(sup, sub) => true
-    case Cons(_,t) => hasSubsequence(t, sub)
-  }
-
-  // write an ADT (algebraic data type) -> representing binary numbers of arbitrary size
-  // a binary is either zero,
-  // or one,
-  // or a digit (one, zero) followed by a shorter binary number
-
-  sealed trait Binary
-  case object Empty extends Binary
-  case class O (t: Binary) extends Binary
-  case class I (t: Binary) extends Binary
 }

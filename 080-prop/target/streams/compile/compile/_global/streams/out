@@ -1,6 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/viki/Desktop/UNI/MASTER_cbs/3rdSemester/Advanced_Programming_Scala/2021-adpro/080-prop/src/main/scala/adpro/Gen.scala:139:11: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : Int => adpro.Gen[List[A]][0m
-[0m[[0m[31merror[0m] [0m[0m required: fpinscala.state.State[fpinscala.state.RNG,List[A]][0m
-[0m[[0m[31merror[0m] [0m[0m    Gen(n => g.listOfN(n))[0m
-[0m[[0m[31merror[0m] [0m[0m          ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m

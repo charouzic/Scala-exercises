@@ -73,32 +73,27 @@ trait Parsers[ParseError, Parser[+_]] { self =>
 
 
   // Exercise 1 (Any is used as a placeholder, and should be removed)
-  // Viktor
 
   def manyA: Any
 
   // Exercise 2 (The entire type signature is wrong (just a temporary to make
   // the file compile). Replace it with the right one)
-  // Hristy
 
   def map2[A,B,C] (x: Nothing): Any
 
   def many1[A] (x: Nothing): Any
 
   // Exercise 3 (Any is used as a placeholder, and should be removed)
-  // Marouan
 
   def digitTimesA: Any
 
   // Exercise 4 (fix the type signature - the current is just a placeholder)
-  // Viktor
 
   def map2_ [A,B,C] (x: Nothing): Any
 
   def product_[A,B] (x: Nothing): Any
 
   // Exercise 5 (fix the type signature - the current is just a placeholder)
-  // Marouan
 
   def map_ [A,B] (x: Nothing): Any
 

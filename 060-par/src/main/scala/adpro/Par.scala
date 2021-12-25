@@ -1,25 +1,20 @@
 // Advanced Programming, A. Wąsowski, IT University of Copenhagen
 //
-// Group number: Hand-In Group Y
+// Group number: _____
 //
-// AUTHOR1: Viktor Macek
-// TIME1: 4 hours
+// AUTHOR1: __________
+// TIME1: _____ <- how much time have you used on solving this exercise set
+// (excluding reading the book, fetching pizza, and going out for a smoke)
 //
-// AUTHOR2: Hristiyana Toteva
-// TIME2: 4 hours
-//
-// AUTHOR3: Marouan El Haddad
-// TIME2: 4 hours
+// AUTHOR2: __________
+// TIME2: _____ <- how much time have you used on solving this exercise set
+// (excluding reading the book, fetching pizza, and going out for a smoke)
 
 package adpro
 
-import java.util.concurrent.{Callable, CountDownLatch, ExecutorService, Executors}
+import java.util.concurrent.{Executors,ExecutorService,CountDownLatch,TimeUnit,Callable}
 import scala.language.implicitConversions
-
-// Viktor == 4
-// Marouan == 4
-// Hristy == 3
-
+import scala.io.Source
 
 // Work through the file top-down, following the exercises from the week's
 // sheet.  Uncomment and complete code fragments.
@@ -102,91 +97,56 @@ object Par {
     }
 
   // Exercise 1
-  // Marouan
-  // The book introduces the following function on the basic type Par in Section 7.1.1:
-  //def unit[A] (a: =>A): Par[A]
-  //Why is the argument a is passed by-name to the unit function
-  // Because it would be evaluated lazily and therefore ensure that we can run our function in parallel with other functions.
+  //
   // Write the answer here in a comment.
 
   // Exercise 2 (CB7.4)
-  // Viktor
 
-  def asyncF[A, B](f: A => B): A => Par[B] = a => lazyUnit(f(a))
+  def asyncF[A,B] (f: A => B) : A => Par[B] = ???
+
 
   // Exercise 3
-  // Hristy
-  //We would test our Par.map function by creating an ExecutorService using the map
-  // to map some value to another. Then we would check if the test we gave is equal
-  // to the expected output.
-
+  //
   // Write the answer here in a comment.
 
   // Exercise 4 (CB7.5)
-  // Viktor
 
-  def sequence[A](ps: List[Par[A]]): Par[List[A]] =
-    ps.foldRight[Par[List[A]]](unit(List.empty))((a, b) => map2(a, b)(_ :: _))
+  def sequence[A] (ps: List[Par[A]]): Par[List[A]] = ???
+
   // this is shown in the book:
 
   def parMap[A,B] (as: List[A]) (f: A => B): Par[List[B]] =
     sequence (as map (asyncF (f)))
 
   // Exercise 5
-  // Viktor
 
-  def wget(uris: String*): List[String] = {
-    val es = Executors.newFixedThreadPool(5)
-    run(es)(parMap(uris.toList)(x => scala.io.Source.fromURL(x)("ISO-8859-1").mkString))
-  }
-  // I need to use the API like this: scala.io.Source.fromURL("https://charouzic.github.io/resume/").mkString
-
-  // the concurrency is achieved by creating value es where we assign the pool of threads (size 5)
-  // this way if we call run with the parameter es we tell scala to run the parMap in parallel (on 5 threads)
-  // which is evaluating each of the string transformed into list of strings and calling scala.io.Source.fromURL()
-  // on each string separately in parallel, and then turning it into a string by calling mkString on the result
+  def wget (uris: String*): List[String] = ???
 
   // Exercise 6 (CB7.6)
-  // Hristy
 
-  def parFilter[A] (as: List[A]) (f: A => Boolean): Par[List[A]] = {
-    map(parMap(as) (aVal => Some(aVal).filter(f)))(aVal => aVal.flatten)
-  }
+  def parFilter[A] (as: List[A]) (f: A => Boolean): Par[List[A]] = ???
 
   // shown in the book (adjusted for the non-blocking version)
 
-  def equal[A] (e: ExecutorService) (p: Par[A], p2: Par[A]): Boolean =
-    p(e) == p2(e)
+   def equal[A] (e: ExecutorService) (p: Par[A], p2: Par[A]): Boolean =
+     p(e) == p2(e)
 
   // Exercise 7 (CB7.11)
-  // Marouan
 
+  def choiceN[A] (n: Par[Int]) (choices: List[Par[A]]): Par[A] = ???
 
-  def choiceN[A] (n: Par[Int]) (choices: List[Par[A]]): Par[A] = map2(n, sequence(choices))((x,l) => l(x))
-
-  def choice[A] (n: Par[Boolean]) (t: Par[A], f: Par[A]): Par[A] = choiceN(map(n)(bol => if (bol) 0 else 1))(List(t, f))
+  def choice[A] (n: Par[Boolean]) (t: Par[A], f: Par[A]): Par[A] = ???
 
   // Exercise 8 (CB7.13)
-  // Viktor
 
+  def chooser[A,B] (pa: Par[A]) (choices: A => Par[B]): Par[B] = ???
 
-  def chooser[A,B] (pa: Par[A]) (choices: A => Par[B]): Par[B] = es => choices(run(es)(pa))(es)
-
-  def choice2[A] (n: Par[Boolean]) (t: Par[A], f: Par[A]): Par[A] = chooser(n)(x => if (x) t else f)
-
-  def choiceN2[A] (n: Par[Int]) (choices: List[Par[A]]): Par[A] = chooser(n)(choices)
   // Exercise 9 (CB7.14)
-  // Hristy
 
-  def join[A] (a : Par[Par[A]]) :Par[A] = chooser (a) (a => a)
+  def join[A] (a : Par[Par[A]]) :Par[A] = ???
 
   // Exercise 10
-  // Marouan
+  //
   // ...
-  implicit class parExtensions[A](val p: Par[A]) extends AnyVal {
-    def map[B] (f: A => B): Par[B] = Par.map (p) (f)
-    def map2[B,C] (p2: Par[B]) (f: (A,B) => C): Par[C] = Par.map2 (p, p2) (f)
-    def chooser[B] (choices: A => Par[B]): Par[B] = Par.chooser (p) (choices)
-  }
 
 }

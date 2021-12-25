@@ -2,8 +2,9 @@
 // change package to adpro.SOLUTIONS to test teacher's solutions
 package adpro
 
-import org.scalacheck.{Arbitrary, Gen}
-
+import org.scalacheck.Gen
+import org.scalacheck.Arbitrary
+import org.scalacheck.Arbitrary.arbitrary
 import java.util.concurrent._
 
 class ParSpec
@@ -96,31 +97,15 @@ class ParSpec
   "Exercise 8 (chooser)" - {
 
     "chooser returns the right computation" in {
-      forAll(Gen.choose(0, 100) -> "n") { n: Int =>
-        forAll(listOfNInts(101) -> "l") { l: List[Int] =>
-          val test: Par[Int] = chooser[Int, Int](lazyUnit(n))(a => lazyUnit(l(a)))
-          val result = Par.run[Int](pool16)(test)
-          result should be(l(n))
-        }
+      forAll (Gen.choose (0,100) -> "n") { n: Int =>
+         forAll (listOfNInts (101) -> "l") { l: List[Int] =>
+           val test: Par[Int] = chooser[Int,Int] (lazyUnit (n))  (a => lazyUnit (l (a)))
+           val result = Par.run[Int] (pool16) (test)
+           result should be (l(n))
+         }
       }
     }
 
-    "choiceN2 returns the right computation" in {
-      val test: Par[Int] = choiceN2[Int](lazyUnit[Int](0))(gadget.listPar)
-      Par.run[Int](pool5)(test) should be(1)
-    }
-    // This test is on hold, because the book does not discuss speculative
-    // execution. Perhaps we'll add it at some point
-    // "choosing a fast computation in choice N is fast" in {
-    // }
-
-    "choice2 returns the right computation" in {
-      forAll("b") { b: Boolean =>
-        val test: Par[Boolean] = choice2(lazyUnit(b))(lazyUnit(true), lazyUnit(false))
-        val result = Par.run[Boolean](pool5)(test)
-        result should be(b)
-      }
-    }
   }
 
   "Exercise 7 (choiceN, choice)" - {
