@@ -12,7 +12,8 @@
 
 package adpro
 
-import java.util.concurrent.{Executors,ExecutorService,CountDownLatch,TimeUnit,Callable}
+import java.util.concurrent.{Callable, CountDownLatch, ExecutorService, Executors, TimeUnit}
+import scala.::
 import scala.language.implicitConversions
 import scala.io.Source
 
@@ -102,7 +103,7 @@ object Par {
 
   // Exercise 2 (CB7.4)
 
-  def asyncF[A,B] (f: A => B) : A => Par[B] = ???
+  def asyncF[A,B] (f: A => B) : A => Par[B] = a => lazyUnit(f(a))
 
 
   // Exercise 3
@@ -111,7 +112,8 @@ object Par {
 
   // Exercise 4 (CB7.5)
 
-  def sequence[A] (ps: List[Par[A]]): Par[List[A]] = ???
+  def sequence[A] (ps: List[Par[A]]): Par[List[A]] =
+    ps.foldRight[Par[List[A]]](unit(List.empty))((a, b) => map2(a, b)(_ :: _))
 
   // this is shown in the book:
 
@@ -119,12 +121,19 @@ object Par {
     sequence (as map (asyncF (f)))
 
   // Exercise 5
+  //val es = Executors.newFixedThreadPool(5)
+  def wget (uris: String*): List[String] = {
+    val es = Executors.newFixedThreadPool(5)
+    run(es)(parMap(uris.toList)(u => scala.io.Source.fromURL(u)("ISO-8859-1").mkString))
+  }
 
-  def wget (uris: String*): List[String] = ???
+    //uris.map(u => scala.io.Source.fromURL(u)("ISO-8859-1").mkString).toList
 
   // Exercise 6 (CB7.6)
 
-  def parFilter[A] (as: List[A]) (f: A => Boolean): Par[List[A]] = ???
+  def parFilter[A] (as: List[A]) (f: A => Boolean): Par[List[A]] = {
+    map(parMap(as) (a => Some(a).filter(f)))(a => a.flatten)
+  }
 
   // shown in the book (adjusted for the non-blocking version)
 
@@ -133,17 +142,35 @@ object Par {
 
   // Exercise 7 (CB7.11)
 
-  def choiceN[A] (n: Par[Int]) (choices: List[Par[A]]): Par[A] = ???
+  def choiceN1[A] (n: Par[Int]) (choices: List[Par[A]]): Par[A] =
+    map2(n, sequence(choices))((x, y) => y(x))
 
-  def choice[A] (n: Par[Boolean]) (t: Par[A], f: Par[A]): Par[A] = ???
+  def choice1[A] (n: Par[Boolean]) (t: Par[A], f: Par[A]): Par[A] = {
+    choiceN1(map(n)(b => if (b) 0 else 1))(List(t,f))
+  }
 
   // Exercise 8 (CB7.13)
 
-  def chooser[A,B] (pa: Par[A]) (choices: A => Par[B]): Par[B] = ???
+  //def flatMap[A,B] (f: Rand[A]) (g: A => Rand[B]): Rand[B] = {
+  //  rng => {
+  //    val (a, r) = f(rng)
+  //    g(a)(r)
+  //  }
+  //}
+
+  def chooser[A,B] (pa: Par[A]) (choices: A => Par[B]): Par[B] =
+    es => choices(run(es)(pa))(es)
+
+  def choiceN[A] (n: Par[Int]) (choices: List[Par[A]]): Par[A] =
+    chooser(n)(choices)
+
+  def choice[A] (n: Par[Boolean]) (t: Par[A], f: Par[A]): Par[A] = {
+    chooser(n)(x => if (x) t else f)
+  }
 
   // Exercise 9 (CB7.14)
 
-  def join[A] (a : Par[Par[A]]) :Par[A] = ???
+  def join[A] (a : Par[Par[A]]) :Par[A] = chooser(a)(a => a)
 
   // Exercise 10
   //
