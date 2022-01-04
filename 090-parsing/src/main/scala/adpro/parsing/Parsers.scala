@@ -74,27 +74,35 @@ trait Parsers[ParseError, Parser[+_]] { self =>
 
   // Exercise 1 (Any is used as a placeholder, and should be removed)
 
-  def manyA: Any
+  def manyA: Parser[Int] = map(many('a')) (_.length)
 
   // Exercise 2 (The entire type signature is wrong (just a temporary to make
   // the file compile). Replace it with the right one)
 
-  def map2[A,B,C] (x: Nothing): Any
+  def map2[A,B,C] (pa: Parser[A], pb: Parser[B]) (f: (A,B) => C): Parser[C] =
+    product(pa, pb).map(x=>f(x._1, x._2))
 
-  def many1[A] (x: Nothing): Any
+  def many1[A](p: Parser[A]): Parser[List[A]] =
+    map2(p, many(p))(_::_)
 
   // Exercise 3 (Any is used as a placeholder, and should be removed)
 
-  def digitTimesA: Any
+  def digitTimesA: Parser[Int] =
+    flatMap ("[0-9]+".r) ((str) => map (listOfN (str.toInt, char ('a'))) (_.size))
 
   // Exercise 4 (fix the type signature - the current is just a placeholder)
 
-  def map2_ [A,B,C] (x: Nothing): Any
+  def map2_[A,B,C](p1: Parser[A], p2: => Parser[B])(f: (A,B) => C): Parser[C] =
+    for
+    { a <- p1; b <- p2 }
+      yield f(a,b)
 
-  def product_[A,B] (x: Nothing): Any
+  def product_[A,B](p1: Parser[A], p2: => Parser[B]): Parser[(A,B)] =
+    flatMap(p1)(a => map(p2)(b => (a,b)))
 
   // Exercise 5 (fix the type signature - the current is just a placeholder)
 
-  def map_ [A,B] (x: Nothing): Any
+  def map_ [A,B] (p: Parser[A])(f: A => B): Parser[B] =
+    p.flatMap(a => succeed(f(a)))
 
 }
