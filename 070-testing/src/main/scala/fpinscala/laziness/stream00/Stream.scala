@@ -96,6 +96,9 @@ trait Stream[+A] {
   def headOption: Option[A] =
     foldRight(None: Option[A])((h,_) => Some(h))
 
+  //def headOption: Option[A] =
+  //    foldRight(None: Option[A])((h,_) => Some(h))
+
   def map[B](f: A => B): Stream[B] =
     foldRight(empty[B])((h,t) => cons(f(h), t))
 
