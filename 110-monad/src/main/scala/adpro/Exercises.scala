@@ -67,10 +67,15 @@ trait Monoid[A] { self =>
     // Exercise 6
 
     def homomorphism[B] (f: A => B) (mb: Monoid[B])
-      (implicit arbA: Arbitrary[A]) = ???
+      (implicit arbA: Arbitrary[A]) = forAll {
+      (a1: A, a2: A) => f(self.op(a1, a2)) shouldBe mb.op(f(a1), f(a2))
+    }
 
     def isomorphism[B: Arbitrary] (f: A => B, g: B => A) (mb: Monoid[B])
-      (implicit arbA: Arbitrary[A]) = ???
+      (implicit arbA: Arbitrary[A]) = {
+      homomorphism(f)(mb)(arbA)
+      mb.Laws.homomorphism[A] (g) (self) (implicitly[Arbitrary[B]])
+    }
 
     // Exercise 7 continues in MonoidExercisesSpec below
 
@@ -104,42 +109,81 @@ object Monoid {
 
   // Exercise 1
 
-  lazy val intAddition: Monoid[Int] = ???
+  lazy val intAddition: Monoid[Int] = new Monoid[Int] {
+    override def op(a1: Int, a2: Int): Int = a1 + a2
+
+    override def zero: Int = 0
+  }
 
 
-  lazy val intMultiplication: Monoid[Int] = ???
+  lazy val intMultiplication: Monoid[Int] = new Monoid[Int] {
+    override def op(a1: Int, a2: Int): Int = a1 * a2
+
+    override def zero: Int = 1
+  }
 
 
-  lazy val booleanOr: Monoid[Boolean] = ???
+  lazy val booleanOr: Monoid[Boolean] = new Monoid[Boolean] {
+    override def op(a1: Boolean, a2: Boolean): Boolean = a1 || a2
+
+    override def zero: Boolean = false
+  }
 
 
-  lazy val booleanAnd: Monoid[Boolean] = ???
+  lazy val booleanAnd: Monoid[Boolean] = new Monoid[Boolean] {
+    override def op(a1: Boolean, a2: Boolean): Boolean = a1 && a2
+
+    override def zero: Boolean = true
+  }
 
 
   // Exercise 2
 
-  def optionMonoid[A]: Monoid[Option[A]] = ???
+  def optionMonoid[A]: Monoid[Option[A]] = new Monoid[Option[A]] {
+    override def op(a1: Option[A], a2: Option[A]): Option[A] = a1 orElse a2
+
+    override def zero: Option[A] = None
+  }
 
 
-  def optionMonoidLift[A: Monoid]: Monoid[Option[A]] = ???
+  def optionMonoidLift[A: Monoid]: Monoid[Option[A]] = new Monoid[Option[A]] {
+    override def op(a1: Option[A], a2: Option[A]): Option[A] = for {
+      a1 <- a1
+      a2 <- a2
+      m = implicitly[Monoid[A]]
+    } yield m.op(a1, a2)
+
+    override def zero: Option[A] = Some(implicitly[Monoid[A]].zero)
+  }
 
 
   // Exercise 3
 
-  def endoMonoid[A]: Monoid[A => A] = ???
+  def endoMonoid[A]: Monoid[A => A] = new Monoid[A => A] {
+    override def op(a1: A => A, a2: A => A): A => A = a1 compose a2
+
+    override def zero: A => A = identity
+  }
 
 
   // Exercise 4 continues below in MonoidExercisesSpec
 
   // Exercise 5
 
-  def foldMap[A,B: Monoid] (as: List[A]) (f: A => B): B = ???
+  def foldMap[A,B: Monoid] (as: List[A]) (f: A => B): B = {
+    val m = implicitly [Monoid[B]]
+    as.foldRight(m.zero)((a, b) => m.op(b,f(a)))
+  }
 
   // Exercise 6 continues above in Monoid.Laws
 
   // Exercise 9
 
-  def productMonoid[A,B] (ma: Monoid[A]) (mb: Monoid[B]): Monoid[(A,B)] = ???
+  def productMonoid[A,B] (ma: Monoid[A]) (mb: Monoid[B]): Monoid[(A,B)] = new Monoid[(A, B)] {
+    override def op(a1: (A, B), a2: (A, B)): (A, B) = (ma.op(a1._1, a2._1), mb.op(a1._2, a2._2))
+
+    override def zero: (A, B) = (ma.zero, mb.zero)
+  }
 
 } // object Monoid
 
@@ -155,8 +199,10 @@ class MonoidExercisesSpec
 
   "Exercise 10 (tests exercise 9, written by student)" - {
 
-    "productMonoid (optionMonoid[Int]) (listMonoid[String]) gives a monoid" in
-      ???
+    "productMonoid (optionMonoid[Int]) (listMonoid[String]) gives a monoid" in {
+      M.productMonoid(M.optionMonoid[Int])(M.listMonoid[String]).Laws.monoid
+    }
+
 
   } // We continue with Exercise 10 below in Foldable
 
@@ -165,7 +211,9 @@ class MonoidExercisesSpec
 
   "Exercise 8 (tests Exercise 1, written by student)" - {
 
-    "booleanOr is isomorphic to booleanAnd" in ???
+    "booleanOr is isomorphic to booleanAnd" in {
+      M.booleanOr.Laws.isomorphism[Boolean](!_ ,!_)(M.booleanAnd)
+    }
 
   } // We continue with Exercise 9 above, in the Monoid object
 
@@ -174,7 +222,9 @@ class MonoidExercisesSpec
 
   "Exercise 7 (tests Exercise 6, written by student)" - {
 
-    "stringMonoid is isomorphic to listMonoid[Char]" in ???
+    "stringMonoid is isomorphic to listMonoid[Char]" in {
+      M.stringMonoid.Laws.isomorphism[List[Char]](_.toList, _.mkString)(M.listMonoid)
+    }
 
   } // Exercise 8 continues above (tests are in the opposite order to
     // make test results from `sbt test` more readable)
@@ -184,17 +234,27 @@ class MonoidExercisesSpec
 
   "Exercise 4 (tests exercises 1-2, written by student)" - {
 
-    "intAddition is a monoid" in ???
+    "intAddition is a monoid" in {
+      M.intAddition.Laws.monoid
+    }
 
-    "intMultiplication is a monoid" in ???
+    "intMultiplication is a monoid" in {
+      M.intMultiplication.Laws.monoid
+    }
 
-    "booleanOr is a monoid" in ???
+    "booleanOr is a monoid" in {
+      M.booleanOr.Laws.monoid
+    }
 
-    "booleanAnd is a monoid" in ???
+    "booleanAnd is a monoid" in {
+      M.booleanAnd.Laws.monoid
+    }
 
-    "optionMonoid is a monoid" in ???
+    "optionMonoid is a monoid" in {
+      M.optionMonoid[String].Laws.monoid
+    }
 
-    "optionMonoidLift is a monoid" in ???
+    "optionMonoidLift is a monoid" in M.optionMonoidLift(M.intMultiplication).Laws.monoid
 
     // Exercise 5 continues above in the Monoid companion object
 
@@ -216,7 +276,7 @@ trait Foldable[F[_]] {
 
   // Exercise 12
 
-  def toList[A] (fa: F[A]): List[A] = ???
+  def toList[A] (fa: F[A]): List[A] = foldRight(fa)(List[A]())((a, b) => a :: b)
 
   // Continue with Exercise 13 below Foldable
 
@@ -227,7 +287,13 @@ object Foldable {
 
   // Exercise 11
 
-  def foldableList[A]: Foldable[List] = ???
+  def foldableList[A]: Foldable[List] = new Foldable[List] {
+    override def foldRight[A, B](as: List[A])(z: B)(f: (A, B) => B): B = as.foldRight(z)(f)
+
+    override def foldLeft[A, B](as: List[A])(z: B)(f: (B, A) => B): B = as.foldLeft(z)(f)
+
+    override def foldMap[A, B](as: List[A])(f: A => B)(mb: Monoid[B]): B = Monoid.foldMap(as)(f)(mb)
+  }
 
   // see Exercise 12 just above
 
@@ -260,7 +326,9 @@ object Functor {
 
   // Exercise 13
 
-  lazy val optionFunctor: Functor[Option] = ???
+  lazy val optionFunctor: Functor[Option] = new Functor[Option] {
+    override def map[A, B](fa: Option[A])(f: A => B): Option[B] = fa map f
+  }
 
   // Exercise 14 continues directly below in the Spec class
 
@@ -281,7 +349,7 @@ class FunctorExercisesSpec
     // Exercise 14
 
     "optionFunctor satisfies map law (tests Exercise 13, written by student)" in
-      ???
+      F.optionFunctor.Laws.map[Int]
 
   }
 
@@ -305,17 +373,19 @@ trait Monad[F[_]] extends Functor[F] { self =>
 
   // Exercise 17
 
-  def sequence[A] (lfa: List[F[A]]): F[List[A]] = ???
+  def sequence[A] (lfa: List[F[A]]): F[List[A]] =
+    lfa.foldRight(unit(List[A]()))((a, b) => map2(a, b)((x, y) => x :: y))
 
   // Exercise 18
 
-  def replicateM[A] (n: Int, ma: F[A]): F[List[A]] = ???
+  def replicateM[A] (n: Int, ma: F[A]): F[List[A]] = sequence(List.fill(n)(ma))
 
   // Write in the comment here ...
 
   // Exercise 19
 
-  def compose[A,B,C] (f: A => F[B], g: B => F[C]): A => F[C] = ???
+  def compose[A,B,C] (f: A => F[B], g: B => F[C]): A => F[C] =
+    a => flatMap(f(a))(g)
 
 
 
@@ -367,10 +437,18 @@ object Monad {
 
   // Exercise 15
 
-  lazy val optionMonad: Monad[Option] = ???
+  lazy val optionMonad: Monad[Option] = new Monad[Option] {
+    override def unit[A](a: => A): Option[A] = Some(a)
+
+    override def flatMap[A, B](ma: Option[A])(f: A => Option[B]): Option[B] = ma flatMap f
+  }
 
 
-  lazy val listMonad: Monad[List] = ???
+  lazy val listMonad: Monad[List] = new Monad[List] {
+    override def unit[A](a: => A): List[A] = List(a)
+
+    override def flatMap[A, B](ma: List[A])(f: A => List[B]): List[B] = ma flatMap f
+  }
 
   // Exercise 16 continues directly below in MonadExercisesSpec
 }
@@ -386,9 +464,9 @@ class MonadExercisesSpec
 
   "Exercise 16 (tests Exercise 15, written by student)" - {
 
-    "optionMonad is a monad" in ???
+    "optionMonad is a monad" in M.optionMonad.MonadLaws.monad[Int, Int, Int]
 
-    "listMonad is a monad" in ???
+    "listMonad is a monad" in M.listMonad.MonadLaws.monad[Int, Int, Int]
 
   }
 
